@@ -1,8 +1,16 @@
 package org.example.Repository;
 
-public class postgreSQLRepository implements IRepository{
+import org.example.wishlistItem;
+
+import java.sql.*;
+
+public class PostgreSQLRepository implements IRepository{
     //Declare DB URL, username, password
+    private static final String Postgre_URL = "jdbc:postgresql://localhost:5432/expensesdb";
+    private static final String Postgre_User = "postgres";
+    private static final String Postgre_PW = "mysecretpassword";
     //Declare a Connection field
+    private Connection connection;
 
     //Constructor should:
     //Connect to PostgreSQL database

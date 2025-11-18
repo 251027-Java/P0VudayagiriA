@@ -1,10 +1,31 @@
 package org.example;
 
+import org.example.Repository.IRepository;
+import org.example.Repository.PostgreSQLRepository;
+import org.example.Service.closetService;
+import org.example.Service.wishListService;
+import org.example.objects.clothingItem;
+import org.example.objects.category;
+import org.example.objects.wishlistItem;
+
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // Create a single PostgreSQLRepository instance
-        // Create ClothingService, CategoryService, WishlistService
+        IRepository repo = new PostgreSQLRepository();
+        // Create ClosetService, WishlistService
+        closetService cs = new closetService(repo);
+        wishListService wls = new wishListService(repo);
+
         // Create Scanner for user input
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("============================================");
+        System.out.println("      CLOSET ORGANIZER + WISHLIST APP");
+        System.out.println("============================================");
+
         // Start an infinite loop to display menu options:
         //          1. Add clothing item
         //          2. View closet
