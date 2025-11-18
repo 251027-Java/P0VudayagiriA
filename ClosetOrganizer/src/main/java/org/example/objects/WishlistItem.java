@@ -1,15 +1,15 @@
 package org.example.objects;
 
-public class wishlistItem {
+public class WishlistItem {
     //Declare Fields: int id, String itemName, String storeName, double price, String link
 private int id;
 private String itemName;
-private int storeName;
+private String storeName;
 private double price;
 private String link;
 
     //Constructor to set fields
-    public wishlistItem(int id, String itemName, int storeName, double price, String link) {
+    public WishlistItem(int id, String itemName, String storeName, double price, String link) {
         this.id = id;
         this.itemName = itemName;
         this.storeName = storeName;
@@ -24,7 +24,7 @@ private String link;
     public String getItemName() {
         return itemName;
     }
-    public int getStoreName() {
+    public String getStoreName() {
         return storeName;
     }
     public double getPrice() {
@@ -37,6 +37,6 @@ private String link;
     //Add a  toString() to display formatted wishlist item
     @Override
     public String toString() {
-        return "wishListItem{" + "id=" + id + ", itemName=" + itemName + ", storeName=" + storeName + ", price=" + price + ", link=" + link + '}';
+        return "WishListItem{id=" + id + ", itemName='" + itemName + "', storeName='" + storeName + "', price=" + price + ", link='" + link + "'}";
     }
 }

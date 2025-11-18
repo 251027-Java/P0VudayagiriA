@@ -1,19 +1,19 @@
 package org.example.objects;
 
-public class category {
+public class Category {
     //Fields: int id, String name
 private int id;
 private String name;
 
     //Add constructor to initialize fields
-public category(int id, String name) {
+public Category(int id, String name) {
     this.id = id;
     this.name = name;
 
 }
     //Add getters for id and name
     public int getId() {
-    return id;
+        return id;
     }
 
     public String getName() {

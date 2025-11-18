@@ -1,8 +1,12 @@
 package org.example.Repository;
 
-import org.example.wishlistItem;
+import org.example.objects.WishlistItem;
+import org.example.objects.Category;
+import org.example.objects.ClothingItem;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostgreSQLRepository implements IRepository{
     //Declare DB URL, username, password
