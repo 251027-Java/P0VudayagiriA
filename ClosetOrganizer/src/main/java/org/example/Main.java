@@ -16,8 +16,8 @@ public class Main {
         // Create a single PostgreSQLRepository instance
         IRepository repo = new PostgreSQLRepository();
         // Create ClosetService, WishlistService
-        ClosetService cs = new ClosetService(repo);
-        WishListService wls = new WishListService(repo);
+        ClosetService closetService = new ClosetService(repo);
+        WishListService wishListService = new WishListService(repo);
 
         // Create Scanner for user input
         Scanner scanner = new Scanner(System.in);
@@ -42,37 +42,106 @@ public class Main {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 //          1. Add clothing item
+                // Call appropriate service method based on menu choice
                 case 1:
                     System.out.println("Enter Clothing Name: ");
                     String clothingName = scanner.nextLine();
-                    ClothingItem newClothingItem = ClosetService.addClothing(clothingName);
+                    ClothingItem newClothingItem = closetService.addClothing(clothingName);
                     System.out.println("Created: "  + newClothingItem);
                     break;
                 //          2. View closet
+                // Call appropriate service method based on menu choice
                 case 2:
-                    List<ClothingItem> clothingList = ClosetService.getAllClothes();
+                    List<ClothingItem> clothingList = closetService.getAllClothes();
 
                     if (clothingList.isEmpty()) {
                         System.out.println("No Clothes Found.");
                     } else {
                         for (ClothingItem clothing :  clothingList) {
                             System.out.println(clothing);
-                            List<Category> categories = ClosetService.getCategoriesForItem(clothing.getId());
+                            List<Category> categories = closetService.getCategoriesForItem(clothing.getId());
                             System.out.println("Categories: " + categories);
                         }
                     }
+                    break;
                 //          3. Add category
-                //          4. View categories
-                //          5. Assign category to clothing item
-                //          6. Remove category from clothing item
-                //          7. Add wishlist item
-                //          8. View wishlist
-                //          9. Delete clothing item
-                //         10. Delete wishlist item
-                //          0. Exit program
-                // Handle invalid input with try/catch
                 // Call appropriate service method based on menu choice
+                case 3:
+                    System.out.println("Enter the Category's Name:");
+                    String categoryName = scanner.nextLine();
+                    Category newCategory = closetService.addCategory(categoryName);
+                    System.out.println("Created: "  + newCategory);
+                    break;
+                //          4. View categories
+                // Call appropriate service method based on menu choice
+                case 4:
+                    System.out.println(closetService.getAllCategories());
+                    break;
+                //          5. Assign category to clothing item
+                // Call appropriate service method based on menu choice
+                case 5:
+                    System.out.println("Enter Clothing ID: ");
+                    int clothingId = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Enter Category ID: ");
+                    int categoryId = Integer.parseInt(scanner.nextLine());
+                    closetService.assignCategory(clothingId, categoryId);
+                    break;
+                //          6. Remove category from clothing item
+                // Call appropriate service method based on menu choice
+                case 6:
+                    System.out.println("Enter Clothing ID: ");
+                    int clothingIdRemove = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Enter Category ID: ");
+                    int categoryIdRemove = Integer.parseInt(scanner.nextLine());
+                    closetService.removeCategory(clothingIdRemove, categoryIdRemove);
+                    break;
+                //          7. Add wishlist item
+                // Call appropriate service method based on menu choice
+                case 7:
+                    System.out.println("Enter Item Name: ");
+                    String itemName = scanner.nextLine();
+
+                    System.out.println("Enter Store Name: ");
+                    String storeName = scanner.nextLine();
+
+                    System.out.println("Enter Price: ");
+                    double price = Double.parseDouble(scanner.nextLine());
+
+                    System.out.println("Enter Link to Item: ");
+                    String link = scanner.nextLine();
+
+                    WishlistItem wishlistItem = wishListService.addWishlistItem(itemName, storeName, price, link);
+                    System.out.println("Added to Your Wishlist: "  + wishlistItem);
+                    break;
+                //          8. View wishlist
+                // Call appropriate service method based on menu choice
+                case 8:
+                    System.out.println(wishListService.getWishlist());
+                    break;
+                //          9. Delete clothing item
+                // Call appropriate service method based on menu choice
+                case 9:
+                    System.out.println("Enter ID of the Item You Wish to Delete: ");
+                    int deleteClothingId = Integer.parseInt(scanner.nextLine());
+                    closetService.deleteClothing(deleteClothingId);
+                    break;
+                //         10. Delete wishlist item
+                // Call appropriate service method based on menu choice
+                case 10:
+                    System.out.println("Enter ID of the Wishlist Item You Wish to Delete: ");
+                    int deleteWishlistItemId = Integer.parseInt(scanner.nextLine());
+                    wishListService.deleteWishlistItem(deleteWishlistItemId);
+                    break;
+                //          0. Exit program
                 // Break loop when user chooses Exit
+                case 0:
+                    System.out.println("Exiting...");
+                    System.out.println("Goodbye, and See You Again!");
+                    return;
+                // Handle invalid option
+                default:
+                    System.out.println("Invalid Option");
+
             }
 
         }
