@@ -1,10 +1,10 @@
 package org.example.Repository;
 
-import org.example.objects.ClothingItem;
-import org.example.objects.Category;
-import org.example.objects.WishlistItem;
-
 import java.util.List;
+
+import org.example.objects.Category;
+import org.example.objects.ClothingItem;
+import org.example.objects.WishlistItem;
 
 public interface IRepository {
     //For Clothing Items:
