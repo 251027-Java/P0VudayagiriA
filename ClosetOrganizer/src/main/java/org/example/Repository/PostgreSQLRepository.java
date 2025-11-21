@@ -15,7 +15,7 @@ import org.example.models.WishlistItem;
 
 public class PostgreSQLRepository implements IRepository {
     
-    private String url = "jdbc:postgresql://localhost:5432/closetdb";
+    private String url = "jdbc:postgresql://localhost:5432/closetdb?connectTimeout=3";
     private String user = "postgres";
     private String password = "mysecretpassword";
     private Connection connection;

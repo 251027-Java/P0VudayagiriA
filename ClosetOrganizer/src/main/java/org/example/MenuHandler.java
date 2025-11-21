@@ -1,13 +1,13 @@
 package org.example;
 
-import org.example.Service.WishListService;
+import java.util.List;
+import java.util.Scanner;
+
 import org.example.Service.ClosetService;
+import org.example.Service.WishListService;
 import org.example.models.Category;
 import org.example.models.ClothingItem;
 import org.example.models.WishlistItem;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class MenuHandler {
 
@@ -61,7 +61,7 @@ public class MenuHandler {
                     for (ClothingItem clothing : clothingList) {
                         System.out.println(clothing);
                         List<Category> categories = closetService.getCategoriesForItem(clothing.getId());
-                        System.out.print("Categories: " + categories);
+                        System.out.println("Categories: " + categories);
                 }
              }
 
@@ -74,7 +74,7 @@ public class MenuHandler {
 
             //Option 4: View all categories
             } else if (choice == 4) {
-                System.out.println(closetService.getAllCategories());
+                System.out.println(closetService.getAllCategories() + "\n");
 
             //Option 5: Assign a category to a clothing item
             } else if (choice == 5) {
@@ -108,7 +108,17 @@ public class MenuHandler {
                 System.out.println("Added a New Wishlist Item: " + newWishlistItem);
             //Option 8: View all wishlist items
             } else if (choice == 8) {
-                System.out.println(wishListService.getWishlist());
+                List<WishlistItem> wishlist = wishListService.getWishlist();
+                if (wishlist == null || wishlist.isEmpty()) {
+                    System.out.println("Your wishlist is empty.");
+                } else {
+                    System.out.println("Wishlist (top first):");
+                    int number = 1;
+                    for (int i = wishlist.size() - 1; i >= 0; i--) {
+                        System.out.println(number + ". " + wishlist.get(i));
+                        number++;
+                    }
+                }
 
             //Option 9: Delete a clothing item
             } else if (choice == 9) {
