@@ -18,6 +18,9 @@ public class Main {
         //The Menu Handler manages user interactions and menu display
         MenuHandler menu = new MenuHandler(closetService, wishListService);
 
+
+
+
         //Starte the application loop
         //Displays the menu and handles user choices until they exit
         menu.start();

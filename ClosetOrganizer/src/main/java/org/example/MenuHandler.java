@@ -9,7 +9,7 @@ import org.example.objects.WishlistItem;
 import java.util.List;
 import java.util.Scanner;
 
-public class ManuHandler {
+public class MenuHandler {
 
 //Fields: ClosetService, WishlistService, Scanner for user input
     private ClosetService closetService;
@@ -17,7 +17,7 @@ public class ManuHandler {
     private Scanner scanner;
 
 //Constructor receives ClosetService and WishlistService, initializes Scanner
-    public ManuHandler(ClosetService closetService, WishListService wishListService) {
+    public MenuHandler(ClosetService closetService, WishListService wishListService) {
         this.closetService = closetService;
         this.wishListService = wishListService;
         this.scanner = new Scanner(System.in);
@@ -54,7 +54,7 @@ public class ManuHandler {
 
             //Option 2: View all clothing items in the closet along with their categories
             } else if (choice == 2) {
-                List<ClothingItem> clothes = closetService.getAllClothes();
+                List<ClothingItem> clothingList = closetService.getAllClothes();
                 if (clothingList.isEmpty()) {
                     System.out.println("Your closet is empty.");
                 } else {
@@ -97,7 +97,7 @@ public class ManuHandler {
             //Option 7: Add a new wishlist item
             } else if (choice == 7) {
                 System.out.print("Enter Item Name: ");
-                String clothingName = scanner.nextLine();
+                String itemName = scanner.nextLine();
                 System.out.print("Enter Store Name: ");
                 String storeName = scanner.nextLine();
                 System.out.print("Enter Price: ");
