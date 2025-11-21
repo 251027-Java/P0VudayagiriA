@@ -1,4 +1,4 @@
-package org.example.objects;
+package org.example.models;
 
 public class WishlistItem {
     //Declare Fields: int id, String itemName, String storeName, double price, String link

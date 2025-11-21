@@ -1,4 +1,4 @@
-package org.example.objects;
+package org.example.models;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

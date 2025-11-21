@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.example.objects.Category;
-import org.example.objects.ClothingItem;
-import org.example.objects.WishlistItem;
+import org.example.models.Category;
+import org.example.models.ClothingItem;
+import org.example.models.WishlistItem;
 
 public class PostgreSQLRepository implements IRepository {
     

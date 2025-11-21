@@ -1,4 +1,4 @@
-package org.example.objects;
+package org.example.models;
 
 public class ClothingItem {
 

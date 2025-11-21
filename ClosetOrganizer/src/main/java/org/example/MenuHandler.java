@@ -2,9 +2,9 @@ package org.example;
 
 import org.example.Service.WishListService;
 import org.example.Service.ClosetService;
-import org.example.objects.Category;
-import org.example.objects.ClothingItem;
-import org.example.objects.WishlistItem;
+import org.example.models.Category;
+import org.example.models.ClothingItem;
+import org.example.models.WishlistItem;
 
 import java.util.List;
 import java.util.Scanner;

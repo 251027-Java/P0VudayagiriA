@@ -1,6 +1,6 @@
 package org.example.Service;
 import org.example.Repository.IRepository;
-import org.example.objects.WishlistItem;
+import org.example.models.WishlistItem;
 
 import java.util.List;
 

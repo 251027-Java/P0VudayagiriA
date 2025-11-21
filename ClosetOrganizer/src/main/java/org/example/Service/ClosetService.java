@@ -1,7 +1,7 @@
 package org.example.Service;
-import org.example.objects.Category;
+import org.example.models.Category;
 import org.example.Repository.IRepository;
-import org.example.objects.ClothingItem;
+import org.example.models.ClothingItem;
 
 import java.util.List;
 

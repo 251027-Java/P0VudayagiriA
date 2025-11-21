@@ -1,6 +1,6 @@
 package org.example.Service;
 
-import org.example.objects.WishlistItem;
+import org.example.models.WishlistItem;
 import org.example.Repository.IRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
